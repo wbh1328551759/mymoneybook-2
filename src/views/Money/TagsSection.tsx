@@ -19,7 +19,7 @@ const Wrapper = styled.section`
       font-size: 14px;
       margin: 8px 12px;
       &.selected{
-        background: red;
+        background: #9A9A9A;
       }
     }
   }
