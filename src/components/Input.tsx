@@ -11,7 +11,7 @@ const Label = styled.label`
     >input{
       display: block;
       width: 100%;
-      line-height: 72px;
+      line-height: 44px;
       border:none;
       background: none;
     }
