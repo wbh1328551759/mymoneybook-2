@@ -20,8 +20,17 @@ export const useRecords = () => {
   }, [records]);
 
   const addRecord = (newRecord: newRecordItem) => {
-    const record = {...newRecord, createdAt: (new Date()).toISOString()}
+    if (newRecord.amount <= 0) {
+      window.alert('请输入有效金额！');
+      return false;
+    }
+    if(newRecord.tagIds.length === 0){
+      window.alert('请选择对应的标签！');
+      return false;
+    }
+    const record = {...newRecord, createdAt: (new Date()).toISOString()};
     setRecords([...records, record]);
+    return true;
   };
 
   return {
