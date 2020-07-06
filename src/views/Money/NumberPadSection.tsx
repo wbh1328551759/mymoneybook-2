@@ -4,7 +4,8 @@ import {generateOutput} from './NumberPadSection/generateOutput';
 
 type Props = {
   value: number,
-  onChange: (value: number) => void
+  onChange: (value: number) => void,
+  onOk?: () => void
 }
 
 const NumberPadSection: React.FC<Props> = (props) => {
@@ -24,6 +25,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
     const text = (e.target as HTMLButtonElement).textContent;
     if (text === null) {return;}
     if (text === 'OK') {
+      if(props.onOk){props.onOk();}
       return;
     }
     if ('0123456789.'.split('').concat(['删除', '清空']).indexOf(text) >= 0) {
