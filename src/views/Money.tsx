@@ -6,7 +6,6 @@ import {TagsSection} from './Money/TagsSection';
 import {NumberPadSection} from './Money/NumberPadSection';
 import {CategorySection} from './Money/CategorySection';
 import {useRecords} from '../hooks/useRecords';
-import {strict} from 'assert';
 
 
 const MyLayout = styled(Layout)`
@@ -23,6 +22,11 @@ const defaultFormData = {
   amount: 0,
 };
 
+const CategoryWrapper = styled.div`
+  background: #c4c4c4;
+`;
+
+
 function Money() {
   const [selected, setSelected] = useState(defaultFormData);
   const onChange = (obj: Partial<typeof selected>) => {
@@ -33,7 +37,7 @@ function Money() {
   };
   const {addRecord} = useRecords();
   const submit = () => {
-    if(addRecord(selected)){
+    if (addRecord(selected)) {
       window.alert('保存成功');
       setSelected(defaultFormData);
     }
@@ -44,8 +48,11 @@ function Money() {
                    onChange={tagIds => onChange({tagIds})}/>
       <NoteSection value={selected.note}
                    onChange={note => onChange({note})}/>
-      <CategorySection value={selected.category}
-                       onChange={category => onChange({category})}/>
+      <CategoryWrapper>
+        <CategorySection value={selected.category}
+                         onChange={category => onChange({category})}/>
+      </CategoryWrapper>
+
       <NumberPadSection value={selected.amount}
                         onChange={amount => onChange({amount})}
                         onOk={submit}/>
