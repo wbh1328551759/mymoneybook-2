@@ -19,7 +19,7 @@ const Wrapper = styled.section`
       padding: 3px 15px;
       font-size: 14px;
       margin: 8px 12px;
-      max-width: 200px;
+      max-width: 140px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
