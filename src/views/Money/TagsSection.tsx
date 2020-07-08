@@ -19,6 +19,10 @@ const Wrapper = styled.section`
       padding: 3px 15px;
       font-size: 14px;
       margin: 8px 12px;
+      max-width: 200px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       &.selected{
         background: #9A9A9A;
       }
@@ -41,7 +45,7 @@ type Props = {
 }
 
 const TagsSection: React.FC<Props> = (props) => {
-  const {tags,addTag} = useTags()
+  const {tags, addTag} = useTags();
   const selectedTagIds = props.value;
   const onToggleTag = (tagId: number) => {
     const index = selectedTagIds.indexOf(tagId);

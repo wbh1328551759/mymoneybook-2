@@ -1,9 +1,9 @@
-import Layout from '../components/Layout';
+import Layout from 'components/Layout';
 import React, {ReactNode, useState} from 'react';
 import {CategorySection} from './Money/CategorySection';
 import styled from 'styled-components';
 import {RecordItem, useRecords} from '../hooks/useRecords';
-import {useTags} from '../hooks/useTags';
+import {useTags} from 'hooks/useTags';
 import day from 'dayjs';
 
 const CategoryWrapper = styled.div`
@@ -37,7 +37,7 @@ function Statistics() {
   const hash: { [K: string]: RecordItem[] } = {};
   const selectedRecords = records.filter(r => r.category === category);
 
-  selectedRecords.map(r => {
+  selectedRecords.forEach(r => {
     const key = day(r.createdAt).format('YYYY年MM月DD日');
     if (!(key in hash)) {
       hash[key] = [];
@@ -59,7 +59,7 @@ function Statistics() {
                          onChange={value => setCategory(value)}/>
       </CategoryWrapper>
       {array.map(([date,records]) =>
-        <div>
+        <div key={date}>
           <Header>
             {date}
           </Header>
