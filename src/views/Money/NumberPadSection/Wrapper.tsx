@@ -15,10 +15,10 @@ const Wrapper = styled.section`
         font-size: 18px;
         float:left;
         width: 25%;
-        height:54px;
+        height:60px;
         border:none;
       &.ok{
-        height: 108px;
+        height: 120px;
         float: right;  
       }
       &.zero{
