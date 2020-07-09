@@ -25,15 +25,18 @@ const Item = styled.div`
 `;
 
 const Header = styled.h3`
-  font-size: 18px;
+  font-size: 20px;
   line-height: 20px;
   padding: 10px 10px;
+  font-weight: normal;
+  display: flex;
+  justify-content: space-between;
 `;
 
 function Statistics() {
   const [category, setCategory] = useState<'-' | '+'>('-');
   const {records} = useRecords();
-  const {getName} = useTags();
+  const {getName,findTag} = useTags();
   const hash: { [K: string]: RecordItem[] } = {};
   const selectedRecords = records.filter(r => r.category === category);
 
@@ -61,18 +64,20 @@ function Statistics() {
       {array.map(([date,records]) =>
         <div key={date}>
           <Header>
-            {date}
+            <span>{date}</span>
+            <span>￥{records.reduce((sum,item) => sum + item.amount ,0)}</span>
           </Header>
           {records.map(record => {
             return <Item key={record.createdAt}>
               <div className="tag oneLine">
-                {record.tagIds
-                  .map(tagId => <span key={tagId}>{getName(tagId)}</span>)
-                  .reduce((result,span,index,array) =>
-                    result.concat(index < array.length - 1? [span,'、']:[span]),[] as ReactNode[])
+                { findTag(record.tagIds[0])?
+                  record.tagIds.map(tagId => <span key={tagId}>{getName(tagId)}</span>)
+                                .reduce((result,span,index,array) =>
+                                  result.concat(index < array.length - 1? [span,'、']:[span]),[] as ReactNode[]):
+                  '该标签已被删除'
                 }
               </div>
-              {record.note && <div className="note">：{record.note}</div>}
+              {findTag(record.tagIds[0]) && record.note && <div className="note">：{record.note}</div>}
               <div className="amount">
                 ￥{record.amount}
               </div>

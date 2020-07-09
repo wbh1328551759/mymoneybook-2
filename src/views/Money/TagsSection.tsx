@@ -13,18 +13,24 @@ const Wrapper = styled.section`
   align-items: flex-start;
   >ol{
     >li{
-      background: #D9D9D9;
+      background: #f5f5f5;
+      color: #9A9A9A;
       border-radius: 18px;
       display: inline-block;
-      padding: 3px 15px;
+      padding: 0 20px;
       font-size: 14px;
       margin: 8px 12px;
       max-width: 140px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      font-weight: bold;
+      line-height: 30px;
+      height: 30px;
       &.selected{
-        background: #9A9A9A;
+        background: #0ac675;
+        color: white;
+        font-weight: bold;
       }
     }
   }
@@ -33,7 +39,7 @@ const Wrapper = styled.section`
     border:none;
     padding: 2px 4px;
     border-bottom: 1px solid #333;
-    color: #666;
+    color: #686c6f;
     margin-left: 12px;
     margin-top: 8px;
   }

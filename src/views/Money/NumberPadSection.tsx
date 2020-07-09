@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Wrapper} from './NumberPadSection/Wrapper';
 import {generateOutput} from './NumberPadSection/generateOutput';
+import Icon from '../../components/icon';
 
 type Props = {
   value: number,
@@ -30,7 +31,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
       if(props.onOk){props.onOk();}
       return;
     }
-    if ('0123456789.'.split('').concat(['删除', '清空']).indexOf(text) >= 0) {
+    if ('0123456789.'.split('').concat(['x', 'C']).indexOf(text) >= 0) {
       setOutput(generateOutput(text, output));
     }
 
@@ -38,17 +39,20 @@ const NumberPadSection: React.FC<Props> = (props) => {
   return (
     <Wrapper>
       <div className="output">
-        {output}
+        ￥{output}
       </div>
       <div className="pad clearfix" onClick={onClickButtonWrapper}>
         <button>1</button>
         <button>2</button>
         <button>3</button>
-        <button>删除</button>
+        <button className="goBack">
+          <Icon name="goback"/>
+          <span>x</span>
+        </button>
         <button>4</button>
         <button>5</button>
         <button>6</button>
-        <button>清空</button>
+        <button className="clear">C</button>
         <button>7</button>
         <button>8</button>
         <button>9</button>

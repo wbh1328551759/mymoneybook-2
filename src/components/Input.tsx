@@ -4,6 +4,7 @@ import React from 'react';
 const Label = styled.label`
     display: flex;
     align-items: center;
+    color:#9b9b9b;
     >span{ 
       margin-right: 16px;
       white-space: nowrap;

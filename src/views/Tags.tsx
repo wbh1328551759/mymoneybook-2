@@ -10,16 +10,21 @@ import {Space} from 'components/Space';
 
 
 const TagList = styled.ol`
-  font-size: 16px;
-  background: white;
+  background: #09c775;
+  color: white;
+  font-size: 20px;
   >li{
-    border-bottom: 1px solid #d5d5d5;
+    border-bottom: 1px solid #e7e7e7;
     margin: 0 16px;
+    
     >a{
-      padding: 12px 0;
+      padding: 10px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      > .icon{
+        fill: white;
+      }
     }
   }
 `;

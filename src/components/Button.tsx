@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
 const Button = styled.button`
-  font-size: 18px;
+  font-size: inherit;
   border:none;
-  padding: 8px 12px;
-  background: #767676;
+  background: #ffab40;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 10px 36px;
+  margin-top: 12px;
+  line-height: 24px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.50);
   color: white;
 `;
 

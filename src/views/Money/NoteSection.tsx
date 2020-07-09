@@ -4,8 +4,10 @@ import {Input} from 'components/Input';
 
 const Wrapper = styled.section`
   background: #f5f5f5;
-  padding: 5px 28px;
+  padding: 8px 28px;
   font-size: 14px;
+  box-shadow: inset 0 -3px 3px -3px rgba(0,0,0,.3), 
+              inset 0 3px 3px -3px rgba(0,0,0,.3);
 `;
 
 type Props = {

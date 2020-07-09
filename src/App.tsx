@@ -1,5 +1,6 @@
 import React from 'react';
-import {HashRouter as Router, Switch, Route, Redirect
+import {
+  HashRouter as Router, Switch, Route, Redirect
 } from 'react-router-dom';
 import Tags from './views/Tags';
 import Money from './views/Money';
@@ -12,7 +13,10 @@ const AppWrapper = styled.div`
   color: #333;
   max-width: 500px;
   margin: 0 auto;
-`
+  outline: 1px solid black;
+`;
+
+
 
 function App() {
   return (
@@ -40,14 +44,6 @@ function App() {
     </AppWrapper>
   );
 }
-
-
-
-
-
-
-
-
 
 
 export default App;

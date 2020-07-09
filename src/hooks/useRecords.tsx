@@ -6,7 +6,8 @@ export type RecordItem = {
   note: string,
   category: '-' | '+',
   amount: number,
-  createdAt: string
+  createdAt: string,
+  name?:string
 }
 type newRecordItem = Omit<RecordItem, 'createdAt'>
 
