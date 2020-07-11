@@ -6,6 +6,7 @@ import Tags from './views/Tags';
 import Money from './views/Money';
 import Statistics from './views/Statistics';
 import NoMatch from './views/NoMatch';
+import {DataSheet} from './views/DataSheet';
 import styled from 'styled-components';
 import {Tag} from './views/Tag';
 
@@ -19,6 +20,7 @@ const AppWrapper = styled.div`
 
 
 function App() {
+
   return (
     <AppWrapper>
       <Router>
@@ -34,6 +36,9 @@ function App() {
           </Route>
           <Route exact path="/statistics">
             <Statistics/>
+          </Route>
+          <Route exact path="/dataSheet">
+            <DataSheet/>
           </Route>
           <Redirect exact from="/" to="/money"/>
           <Route path="*">

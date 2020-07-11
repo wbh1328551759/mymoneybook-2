@@ -20,7 +20,7 @@ const Wrapper = styled.section`
         border:none;
         background: #f9f9f9;
         font-size: 20px;
-        box-shadow: 0 0 5px #d3d3d3;
+        box-shadow: 0 0 2px #d3d3d3;
       &.ok{
         height: 128px;
         float: right; 
