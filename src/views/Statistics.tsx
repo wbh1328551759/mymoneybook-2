@@ -6,7 +6,6 @@ import {RecordItem, useRecords} from '../hooks/useRecords';
 import {useTags} from 'hooks/useTags';
 import day from 'dayjs';
 
-
 const Item = styled.div`
   display: flex;
   justify-content: space-between;
@@ -45,13 +44,13 @@ function Statistics() {
     hash[key].push(r);
   });
 
-
   const array = Object.entries(hash).sort((a, b) => {
     if (a[0] === b[0]) return 0;
     if (a[0] > b[0]) return -1;
     if (a[0] < b[0]) return 1;
     return 0;
   });
+
   return (
     <Layout>
       <CategorySection value={category}
@@ -80,10 +79,6 @@ function Statistics() {
           })}
         </div>
       )}
-
-      <div>
-
-      </div>
     </Layout>
   );
 }

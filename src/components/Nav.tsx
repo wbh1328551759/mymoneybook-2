@@ -8,6 +8,7 @@ const NavWrapper = styled.nav`
   background: white;
   line-height: 24px;
   box-shadow: 0 0 3px rgba(0,0,0,0.25);
+  color: #6d707a;
   & > ul{
     display: flex;
     >li{
@@ -21,10 +22,11 @@ const NavWrapper = styled.nav`
         .icon{
           width: 24px;
           height: 24px;
-          color:black;
+          fill:#6d707a;
         }
         &.selected{
           color:#0ac774;
+          background: #eeeeee;
           .icon{
              fill:#0ac774;
           }
@@ -52,13 +54,14 @@ const Nav = () => {
         </li>
         <li>
           <NavLink to="/statistics" activeClassName="selected">
-            <Icon name="chart"/>
-            统计页
+            <Icon name="dataSheet"/>
+            详情页
           </NavLink>
         </li>
         <li>
           <NavLink to="/dataSheet" activeClassName="selected">
-            <div>6666</div>
+            <Icon name="chart"/>
+            统计页
           </NavLink>
         </li>
       </ul>

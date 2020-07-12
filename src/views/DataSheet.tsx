@@ -6,8 +6,16 @@ import {Center} from '../components/Center';
 import {Button} from '../components/Button';
 import {CategorySection} from './Money/CategorySection';
 import {useUpdate} from '../hooks/useUpdate';
+import styled from 'styled-components';
 
 var echarts = require('echarts');
+
+const ButtonWrapper = styled.div`
+  margin-top: -50px;
+`;
+const Wrapper = styled.div`
+  margin-top: 65px;
+`;
 
 const DataSheet = () => {
   const [category, setCategory] = useState<'-' | '+'>('-');
@@ -32,7 +40,6 @@ const DataSheet = () => {
 
   let createdAtTable: string[] = [];
   let amountTable: number[] = [];
-  const count = useRef(0)
   useUpdate(() => {
       array.forEach((arr) => {
         const date = arr[0].slice(5, 7).concat('.' + arr[0].slice(8, 10));
@@ -55,7 +62,7 @@ const DataSheet = () => {
     },
     yAxis: [{
       type: 'value',
-      name: '金额',
+      name: '金额（元）',
       nameTextStyle: {
         fontSize: 13,
         fontWeight: 'bold'
@@ -107,7 +114,7 @@ const DataSheet = () => {
         },
         yAxis: [{
           type: 'value',
-          name: '金额',
+          name: '金额（元）',
           nameTextStyle: {
             fontSize: 13,
             fontWeight: 'bold'
@@ -129,9 +136,13 @@ const DataSheet = () => {
   return (
     <Layout>
       <CategorySection value={category} onChange={value => setCategory(value)}/>
-      <div ref={container}/>
+      <Wrapper>
+        <div ref={container}/>
+      </Wrapper>
       <Center>
-        <Button onClick={onClick}>数据更新</Button>
+        <ButtonWrapper>
+          <Button onClick={onClick}>数据更新</Button>
+        </ButtonWrapper>
       </Center>
     </Layout>
   );
