@@ -6,9 +6,6 @@ import {RecordItem, useRecords} from '../hooks/useRecords';
 import {useTags} from 'hooks/useTags';
 import day from 'dayjs';
 
-const CategoryWrapper = styled.div`
-  background: white;
-`;
 
 const Item = styled.div`
   display: flex;
@@ -36,7 +33,7 @@ const Header = styled.h3`
 function Statistics() {
   const [category, setCategory] = useState<'-' | '+'>('-');
   const {records} = useRecords();
-  const {getName,findTag} = useTags();
+  const {getName, findTag} = useTags();
   const hash: { [K: string]: RecordItem[] } = {};
   const selectedRecords = records.filter(r => r.category === category);
 
@@ -57,23 +54,21 @@ function Statistics() {
   });
   return (
     <Layout>
-      <CategoryWrapper>
-        <CategorySection value={category}
-                         onChange={value => setCategory(value)}/>
-      </CategoryWrapper>
-      {array.map(([date,records]) =>
+      <CategorySection value={category}
+                       onChange={value => setCategory(value)}/>
+      {array.map(([date, records]) =>
         <div key={date}>
           <Header>
             <span>{date}</span>
-            <span>￥{records.reduce((sum,item) => sum + item.amount ,0)}</span>
+            <span>￥{records.reduce((sum, item) => sum + item.amount, 0)}</span>
           </Header>
           {records.map(record => {
             return <Item key={record.createdAt}>
               <div className="tag oneLine">
-                { findTag(record.tagIds[0])?
+                {findTag(record.tagIds[0]) ?
                   record.tagIds.map(tagId => <span key={tagId}>{getName(tagId)}</span>)
-                                .reduce((result,span,index,array) =>
-                                  result.concat(index < array.length - 1? [span,'、']:[span]),[] as ReactNode[]):
+                    .reduce((result, span, index, array) =>
+                      result.concat(index < array.length - 1 ? [span, '、'] : [span]), [] as ReactNode[]) :
                   '该标签已被删除'
                 }
               </div>
