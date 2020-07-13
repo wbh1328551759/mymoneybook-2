@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import React from 'react';
 import {
   HashRouter as Router, Switch, Route, Redirect
@@ -9,6 +10,7 @@ import NoMatch from './views/NoMatch';
 import {DataSheet} from './views/DataSheet';
 import styled from 'styled-components';
 import {Tag} from './views/Tag';
+
 
 const AppWrapper = styled.div`
   color: #333;

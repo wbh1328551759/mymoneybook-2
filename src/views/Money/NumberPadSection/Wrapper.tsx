@@ -16,13 +16,13 @@ const Wrapper = styled.section`
     > button{
         float:left;
         width: 25%;
-        height:64px;
+        height:50px;
         border:none;
         background: #f9f9f9;
         font-size: 20px;
         box-shadow: 0 0 2px #d3d3d3;
       &.ok{
-        height: 128px;
+        height: 100px;
         float: right; 
         background: #46c9e7;
         color: white;
